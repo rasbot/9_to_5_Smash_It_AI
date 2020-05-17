@@ -1,8 +1,8 @@
 <!-- PROJECT SHIELDS -->
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
-
-<img src="images/robot_fail.gif" alt="Logo" width="400" height="300">
-
+<p align="center">
+  <img src="images/robot_fail.gif" alt="Logo" width="400" height="300">
+</p>
 # Reinforcement Learning in 3D Simulated Environments
 
 <!-- PROJECT LOGO -->

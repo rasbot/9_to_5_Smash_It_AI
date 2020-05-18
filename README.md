@@ -54,8 +54,8 @@
 Reinforcement learning has many useful applications such as robotics and ... Researchers in artificial intelligence (AI) are constantly improving learning algorithms, and benefit from the ability to train and test their models in different environments. By enabling testing and training within a simulated environment, algorithms can be improved more rapidly. These ideal environments have a physics engine as well as graphics rendering. 
 
 Machine learning (ML) models depend on what type of learning or predictions are involved.
-
-<img src="images/ML_map.PNG" width="400" height="200"/>
+<p align="center">
+  <img src="images/ML_map.PNG" width="400" height="200"/>
 
 If the model will make a prediction of a specific target or label from a set of features, supervised learning can be used. If the data is unstructured or unlabeled, and the target feature is not known, unsupervised learning can be used to find relations between features. If the goal is to have a model learn from the environment through interaction, reinforcement learning is used.
 
@@ -63,11 +63,13 @@ Reinforcement learning involves an __agent__, which could be a robot, a self-dri
 
 <p align="center">
   <img src="images/agent_env.PNG" width="500" height="167"/>
+</p>
 
 The Unity game engine provides an editor which allows for ML algorithms to interact and learn from a variety of simulated environments. Recently the Unity team released version 1.0 of their [ML Agents toolkit](https://github.com/Unity-Technologies/ml-agents). This toolkit, along with the Unity editor, provides a user with the ability to create 3D simulated environments, a Python API to control and integrate ML algorithms into the environments, and a learning pipeline using C# to collect data from the environment, implement agent actions, and collect rewards. Agents can be trained and tested in the Unity engine using the ML agents toolkit.
 
 <p align="center">
   <img src="images/Unity_pipeline.PNG" width="600" height="450"/>
+</p>
 
 <p style="text-align: center;">
 The Unity Learning Environment
@@ -101,7 +103,11 @@ As mentioned above, the policy is the algorithm used in reinforcement learning. 
 
 <!-- UNTRAINED WALKER -->
 ### Untrained Walker
-<img src="images/UNTRAINED.gif" width="600" height="450"/>
+
+<p align="center">
+  <img src="images/UNTRAINED.gif" width="600" height="450"/>
+</p>
+
 <!-- PPO WALKER -->
 ### PPO Training
 
@@ -109,8 +115,9 @@ As mentioned above, the policy is the algorithm used in reinforcement learning. 
 ### SAC Training
 
 
-
-<img src="images/lanky.gif" width="600" height="450"/>
+<p align="center">
+  <img src="images/lanky.gif" width="600" height="450"/>
+</p>
 
 <!-- CONTACT -->
 ## Contact

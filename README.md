@@ -116,7 +116,7 @@ As mentioned above, the policy is the algorithm used in reinforcement learning. 
 
 
 <p align="center">
-  <img src="images/lanky.gif" width="600" height="450"/>
+  <img src="images/LANKY.gif" width="600" height="450"/>
 </p>
 
 <!-- CONTACT -->

@@ -1,0 +1,52 @@
+behaviors:
+  Walker:
+    trainer: ppo
+    batch_size: 2048
+    beta: 0.005
+    buffer_size: 20480
+    epsilon: 0.2
+    hidden_units: 512
+    lambd: 0.95
+    learning_rate: 0.003
+    learning_rate_schedule: linear
+    max_steps: 6e5
+    memory_size: 128
+    normalize: true
+    num_epoch: 3
+    num_layers: 4
+    time_horizon: 1000
+    sequence_length: 64
+    summary_freq: 3000
+    use_recurrent: false
+    vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        strength: 1.0
+        gamma: 0.995
+debug: false
+seed: -1
+env_path: null
+run_id: walker_T7
+initialize_from: null
+load_model: false
+resume: false
+force: false
+train_model: false
+inference: false
+save_freq: 50000
+keep_checkpoints: 5
+base_port: 5005
+num_envs: 1
+curriculum_config: null
+lesson: 0
+no_graphics: false
+multi_gpu: null
+parameter_randomization: null
+env_args: null
+cpu: false
+width: null
+height: null
+quality_level: 5
+time_scale: 20
+target_frame_rate: -1
+capture_frame_rate: 60

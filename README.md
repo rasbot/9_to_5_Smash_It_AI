@@ -1,5 +1,6 @@
 <!-- PROJECT SHIELDS -->
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
+
 <p align="center">
   <img src="images/robot_fail.gif" alt="Logo" width="400" height="300">
 </p>
@@ -60,11 +61,13 @@ If the model will make a prediction of a specific target or label from a set of 
 
 Reinforcement learning involves an __agent__, which could be a robot, a self-driving car, or a video game character, that interacts and learns from the __environment__. The agent observes the environment, takes __actions__, and receives __rewards__ based on those actions. The reward could be positive or negative, suchas if a robot moves closer to its target it would get a positive reward, and if it moves away from its target it would get a negative reward. The goal of the model is to maximize the reward to perform a specific task. An agent might not ever receive a positive reward but get penalized suchas an agent navigating a maze. The penalty might be a negative reward for each step and the model trains the agent to minimize the penalty. The algorithm used to train the model is called the __policy__. This will be discussed more later.
 
-<img src="images/agent_env.PNG" width="500" height="167"/>
+<p align="center">
+  <img src="images/agent_env.PNG" width="500" height="167"/>
 
 The Unity game engine provides an editor which allows for ML algorithms to interact and learn from a variety of simulated environments. Recently the Unity team released version 1.0 of their [ML Agents toolkit](https://github.com/Unity-Technologies/ml-agents). This toolkit, along with the Unity editor, provides a user with the ability to create 3D simulated environments, a Python API to control and integrate ML algorithms into the environments, and a learning pipeline using C# to collect data from the environment, implement agent actions, and collect rewards. Agents can be trained and tested in the Unity engine using the ML agents toolkit.
 
-<img src="images/Unity_pipeline.PNG" width="600" height="450"/>
+<p align="center">
+  <img src="images/Unity_pipeline.PNG" width="600" height="450"/>
 
 <p style="text-align: center;">
 The Unity Learning Environment

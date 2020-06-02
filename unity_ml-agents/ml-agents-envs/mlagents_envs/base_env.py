@@ -312,10 +312,42 @@ class BehaviorSpec(NamedTuple):
             return None
 
     def create_empty_action(self, n_agents: int) -> np.ndarray:
+        """
+        Generates a numpy array corresponding to an empty action (all zeros)
+        for a number of agents.
+        :param n_agents: The number of agents that will have actions generated
+        """
         if self.action_type == ActionType.DISCRETE:
             return np.zeros((n_agents, self.action_size), dtype=np.int32)
         else:
             return np.zeros((n_agents, self.action_size), dtype=np.float32)
+
+    def create_random_action(self, n_agents: int) -> np.ndarray:
+        """
+        Generates a numpy array corresponding to a random action (either discrete
+        or continuous) for a number of agents.
+        :param n_agents: The number of agents that will have actions generated
+        :param generator: The random number generator used for creating random action
+        """
+        if self.is_action_continuous():
+            action = np.random.uniform(
+                low=-1.0, high=1.0, size=(n_agents, self.action_size)
+            ).astype(np.float32)
+            return action
+        elif self.is_action_discrete():
+            branch_size = self.discrete_action_branches
+            action = np.column_stack(
+                [
+                    np.random.randint(
+                        0,
+                        branch_size[i],  # type: ignore
+                        size=(n_agents),
+                        dtype=np.int32,
+                    )
+                    for i in range(self.action_size)
+                ]
+            )
+            return action
 
 
 class BehaviorMapping(Mapping):
@@ -339,21 +371,18 @@ class BaseEnv(ABC):
         Signals the environment that it must move the simulation forward
         by one step.
         """
-        pass
 
     @abstractmethod
     def reset(self) -> None:
         """
         Signals the environment that it must reset the simulation.
         """
-        pass
 
     @abstractmethod
     def close(self) -> None:
         """
         Signals the environment that it must close.
         """
-        pass
 
     @property
     @abstractmethod
@@ -376,7 +405,6 @@ class BaseEnv(ABC):
         :param action: A two dimensional np.ndarray corresponding to the action
         (either int or float)
         """
-        pass
 
     @abstractmethod
     def set_action_for_agent(
@@ -390,7 +418,6 @@ class BaseEnv(ABC):
         :param action: A one dimensional np.ndarray corresponding to the action
         (either int or float)
         """
-        pass
 
     @abstractmethod
     def get_steps(
@@ -408,4 +435,3 @@ class BaseEnv(ABC):
          rewards, agent ids and interrupted flags of the agents that had their
          episode terminated last step.
         """
-        pass

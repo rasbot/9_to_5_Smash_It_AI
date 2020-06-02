@@ -30,6 +30,7 @@ mlagents/trainers/meta_curriculum.py
 mlagents/trainers/models.py
 mlagents/trainers/run_experiment.py
 mlagents/trainers/sampler_class.py
+mlagents/trainers/settings.py
 mlagents/trainers/simple_env_manager.py
 mlagents/trainers/stats.py
 mlagents/trainers/subprocess_env_manager.py

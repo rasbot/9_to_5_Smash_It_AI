@@ -80,7 +80,7 @@ The Python API interfaces with the Unity game engine to create and control ML al
 <!-- ALGORITHMS -->
 ## Reinforcement Learning Algorithms
 ---
-As mentioned above, the policy is the algorithm used in reinforcement learning. The simplest example, which doesn't involve any learning, is a stochastic policy where an agent randomly moves around an environment. If the goal is to do something like collect all the coins in an environment, a random walk will eventually get the job done. If the policy has feedback from the environment, a more intelligent policy can be adopted.
+As mentioned above, the policy is the algorithm used in reinforcement learning. The simplest example, which doesn't involve any learning, is a stochastic policy where an agent randomly moves around an environment. If the goal is to do something like collect all the coins in an environment, a random walk will eventually get the job done. If the policy has feedback from the environment, a more intelligent policy can be adopted. There are several popular reinforcement learning algorithms used in training agents. 
 
 
 <!-- PPO -->

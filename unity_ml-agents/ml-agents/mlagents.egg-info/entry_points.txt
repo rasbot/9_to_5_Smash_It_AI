@@ -1,4 +1,0 @@
-[console_scripts]
-mlagents-learn = mlagents.trainers.learn:main
-mlagents-run-experiment = mlagents.trainers.run_experiment:main
-

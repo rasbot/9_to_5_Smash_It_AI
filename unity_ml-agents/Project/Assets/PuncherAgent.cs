@@ -124,6 +124,8 @@ public class PuncherAgent : Agent
         } 
         else
         {
+			print("taco");
+
             SetReward( -1f );
         }
     }

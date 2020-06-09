@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
+using System.Runtime.InteropServices;
 
 public class PuncherAgent : Agent
 {
@@ -24,7 +25,7 @@ public class PuncherAgent : Agent
 
 	void Start()
     {
-        anim = gameObject.GetComponent<Animator>();
+		anim = Puncher.GetComponent<Animator>();
         rBody = GetComponent<Rigidbody>();
 		rBody.isKinematic=true;
 
@@ -34,8 +35,8 @@ public class PuncherAgent : Agent
     {
         transform.localPosition = new Vector3(0, 1, 0);
 
-        float spawnArea = 3f;
-        float minTargetDist = 1.5f;
+        float spawnArea = 4.5f;
+        float minTargetDist = 2f;
 
         Vector3 pos = Vector3.zero;
 
@@ -74,7 +75,7 @@ public class PuncherAgent : Agent
 		// Actions
 		if (vectorAction[1] > 0)
 		{
-			anim.SetTrigger("punch");
+			anim.SetTrigger("Punch");  
 		}
 
 		Vector3 controlSignal = Vector3.zero;

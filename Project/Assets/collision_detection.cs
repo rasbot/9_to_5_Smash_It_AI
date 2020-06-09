@@ -13,15 +13,16 @@ public class collision_detection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Target")
+        if (other.tag == "Target")
         {
+            print("target hit");
             puncher.setIsHitting(true);
         }
 	}
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Target")
+        if (other.tag == "Target")
         {
             puncher.setIsHitting(false);
         }

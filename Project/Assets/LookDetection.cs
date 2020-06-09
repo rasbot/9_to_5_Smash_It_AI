@@ -14,7 +14,7 @@ public class LookDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Target")
+        if (other.tag == "Target")
         {
             isLooking = true;
         }
@@ -22,7 +22,7 @@ public class LookDetection : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Target")
+        if (other.tag == "Target")
         {
             isLooking = false;
         }

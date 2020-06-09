@@ -28,7 +28,6 @@ public class PuncherAgent : Agent
 		anim = Puncher.GetComponent<Animator>();
         rBody = GetComponent<Rigidbody>();
 		rBody.isKinematic=true;
-
 	}
 
     public override void OnEpisodeBegin()
@@ -63,7 +62,6 @@ public class PuncherAgent : Agent
 	{
 		sensor.AddObservation(Target.transform.position - gameObject.transform.position);
 		//sensor.AddObservation(Input.GetMouseButtonDown(0));
-		sensor.AddObservation(isHittingTarget);
 		sensor.AddObservation(isHittingTarget);
 		sensor.AddObservation(hitCount);
 		sensor.AddObservation(lookCount);
@@ -111,6 +109,7 @@ public class PuncherAgent : Agent
 		isHittingTarget = newState;
 
 		if(isHittingTarget) {
+			print("hit detected");
 			hitCount++;
 			AddReward(0.2f);
 		}

@@ -10,11 +10,12 @@ public class PuncherAgent : Agent
 	public float torque = 20;
 	public bool isDebugging = false;
 
-	public Transform Target;
+	public GameObject Target;
 	public GameObject Puncher;
 
     Animator anim;
     Rigidbody rBody;
+	Rigidbody targetrBody;
 
 	bool isHittingTarget;
 	public int hitCount;
@@ -27,14 +28,16 @@ public class PuncherAgent : Agent
     {
 		anim = Puncher.GetComponent<Animator>();
         rBody = GetComponent<Rigidbody>();
+		targetrBody = Target.GetComponent<Rigidbody>();
 		rBody.isKinematic=true;
 	}
 
     public override void OnEpisodeBegin()
     {
-        transform.localPosition = new Vector3(0, 1, 0);
+		// y = 1.0 for cubebot and 2.04 for agentbot
+        transform.localPosition = new Vector3(0, 2.04f, 0);
 
-        float spawnArea = 4.5f;
+        float spawnArea = 9.0f;
         float minTargetDist = 2f;
 
         Vector3 pos = Vector3.zero;
@@ -55,13 +58,14 @@ public class PuncherAgent : Agent
 		}
 
 
-		Target.localPosition = pos + Vector3.up * 0.5f; // set at pos and lift upward a bit
+		Target.transform.localPosition = pos + Vector3.up * 0.5f; // set at pos and lift upward a bit
     }
 
 	public override void CollectObservations(VectorSensor sensor)
 	{
 		sensor.AddObservation(Target.transform.position - gameObject.transform.position);
-		//sensor.AddObservation(Input.GetMouseButtonDown(0));
+		sensor.AddObservation(targetrBody.velocity.x);
+		sensor.AddObservation(targetrBody.velocity.z);
 		sensor.AddObservation(isHittingTarget);
 		sensor.AddObservation(hitCount);
 		sensor.AddObservation(lookCount);
@@ -102,7 +106,13 @@ public class PuncherAgent : Agent
 		isLookingTarget = false;
 	}
 
-
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Target")
+		{
+			print("Bot hit Agent!");
+		}
+	}
 
 	public void setIsHitting(bool newState)
 	{

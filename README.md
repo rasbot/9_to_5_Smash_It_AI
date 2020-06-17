@@ -120,7 +120,9 @@ In order to have the robots walk, previous 3D models of the bots would have to b
 ### Untrained Walker
 When a walker is untrained, it will just fall over. It has no ability to control the limbs of the walker body. It is not even being told to try to move around since it is not being trained yet.
 
-<img src="images/UNTRAINED.gif" width="600" height="450"/>
+<p align="center">
+  <img src="images/UNTRAINED.gif" width="600" height="450"/>
+</p>
 
 Let's look at how the training process goes for both PPO and SAC.
 

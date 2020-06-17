@@ -88,7 +88,7 @@ The Python API interfaces with the Unity game engine to create and control ML al
 Environments and game objects are created in Unity giving full control over the physics of the environment.
 
 <p align="center">
-    <img src="images/unity.PNG" width="600" height="450"/>
+    <img src="images/unity.PNG" width="700" height="450"/>
 </p>
 
 <!-- scope -->
@@ -121,7 +121,7 @@ In order to have the robots walk, previous 3D models of the bots would have to b
 When a walker is untrained, it will just fall over. It has no ability to control the limbs of the walker body. It is not even being told to try to move around since it is not being trained yet.
 
 <p align="center">
-  <img src="images/UNTRAINED.gif" width="600" height="450"/>
+    <img src="images/UNTRAINED.gif" width="600" height="450"/>
 </p>
 
 Let's look at how the training process goes for both PPO and SAC.
@@ -140,7 +140,7 @@ In order to attempt to increase the performance of the model, some of the hyperp
 When looking at the hidden layers within the neural net, equal training batches with different numbers of hidden layers were compared.
 
 <p align="center">
-    <img src="images/reward_layers.png" width="600" height="450"/>
+    <img src="images/reward_layers.png" width="700" height="580"/>
 </p>
 
 For these runs, training times were around 1 hour. It appears that using one hidden layer is optimal for this amount of training since the policy reward was higher for the entire training session.
@@ -149,7 +149,7 @@ For these runs, training times were around 1 hour. It appears that using one hid
 The learning rate of the model was also examined. 
 
 <p align="center">
-    <img src="images/reward_lr.png" width="600" height="450"/>
+    <img src="images/reward_lr.png" width="700" height="580"/>
 </p>
 
 If the learning rate is too small, the policy will be updated very slowly. If the learning rate is too high, the model will be overfit and will have trouble converging on the maximal policy reward.
@@ -160,14 +160,14 @@ This is evident in the higher values of the learning rate. Both the `0.03` and `
 The summary frequency was compared for different training runs as well. This is essentially how often the policy is updated. If the summary frequency is low, the policy will update more often, and the policy reward value will fluctuate compared to a lower summary frequency where the update occurs with larger batches and is generally smoother.
 
 <p align="center">
-    <img src="images/reward_freq.png" width="600" height="450"/>
+    <img src="images/reward_freq.png" width="700" height="580"/>
 </p>
 
 #### Number of Parallel Agents Training
 This one is not exactly a hyperparameter, but since the agents can be trained in parallel, the number of agents training was compared. The intuition here is that the more agents that are trained in parallel, the better trained the model will be after some amount of training time. If too many agents are training it could bottleneck training due to the CPU/GPU not being able to handle the number of agents.
 
 <p align="center">
-    <img src="images/reward_time_agents.png" width="600" height="450"/>
+    <img src="images/reward_time_agents.png" width="700" height="580"/>
 </p>
 
 These training runs were all of equal step number. This shows that by training more agents, the training time is reduced, and it appears that for 3, 6, and 9 agents that the reward is proportional to the number of agents. However, when training 30 agents, there is no increase in performance. This could be due to the bottlenecking issue mentioned above.
@@ -176,13 +176,13 @@ These training runs were all of equal step number. This shows that by training m
 Comparing training between the tuned model and the default gave what appeared to be slightly better results for the tuned model.
 
 <p align="center">
-    <img src="images/reward_2runs_trunc.png" width="600" height="450"/>
+    <img src="images/reward_2runs_trunc.png" width="700" height="580"/>
 </p>
 
 The tuned model appears to be performing better than the default for most of the trainings. However, they seem to converge around the same reward value near the end. Increasing training time for both models gave more telling results.
 
 <p align="center">
-    <img src="images/reward_2runs.png" width="600" height="450"/>
+    <img src="images/reward_2runs.png" width="700" height="580"/>
 </p>
 
 Clearly this shows that the default model did much better than the tuned model. One reason is most likely due to the default model having a learning rate that was an order of magnitude larger than the tuned model. In shorter training times it appeared that the selected learning rate was ideal. With longer training, this shows that there are non-linear effects that are not accounted for with shorter training times. It could also be that the hyperparameters are coupled and that combinations of hyperparameter values need to be explored.
@@ -191,11 +191,28 @@ The take-home message is that much longer training times need to be explored whi
 
 <!-- SAC WALKER -->
 ### SAC Training
-SAC training was much longer than PPO. In
+SAC training was much longer than PPO. Training time is a cost to companies, so considering how these two policies compare is a balance between performance and training time. 
 
 ### Extensions
+Since the agents are trained in the environment and will learn to take actions that increase the reward, changing the features of the agent can be done before training. In this example, limb length was increased to create a lanky agent. Using PPO, the agent was trained to walk for the same training time that previous models were trained on. 
 
-<img src="images/LANKY.gif" width="600" height="450"/>
+<p align="center">
+    <img src="images/LANKY.gif" width="600" height="450"/>
+</p>
+
+After training, the lanky model had more trouble walking due to the center of gravity being higher so the body experienced more torque and was less stable than the standard walker. 
+
+<p align="center">
+    <img src="images/lanky_boi.gif" width = "700" height="450"/>
+</p>
+
+Looking back at the PPO trained standard walker, I wanted to look at how the model adapted to a change in the mass distribution of the body after it was trained. 3 trained walkers were placed next to each other. The left model has no changes to the body. The mass of the left hand was increased in the Unity engine for the middle and right models by 20x and 100x, respectively. The hand sizes were increased for visual clarity, even though the mass of the body part is not coupled with the size of the part.
+
+<p align="center">
+    <img src="images/fathands.gif" width = "700" height="350"/>
+</p>
+
+The model seems to try to compensate for the uneven mass distribution by pulling the hand closer to the center of mass. The model would perfor much better if it was trained with the different agents, but it is interesting to see how the trained model adapts to this change.
 
 ## Puncher Trainer
 

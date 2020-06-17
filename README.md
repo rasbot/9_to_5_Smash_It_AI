@@ -200,7 +200,7 @@ The take-home message is that much longer training times need to be explored whi
 
 <!-- SAC WALKER -->
 ### SAC Training
-SAC training was much longer than PPO. Training time is a cost to companies, so considering how these two policies compare is a balance between performance and training time. 
+SAC training was much longer than PPO. Training time is a cost to companies, so considering how these two policies compare is a balance between performance and training time. After training an agent with SAC for around 8 hours, the results were not impressive. 
 
 ### Extensions
 Since the agents are trained in the environment and will learn to take actions that increase the reward, changing the features of the agent can be done before training. In this example, limb length was increased to create a lanky agent. Using PPO, the agent was trained to walk for the same training time that previous models were trained on. 
@@ -268,6 +268,14 @@ The inputs to the neural net are:
 
 * For later (not the simplified version), the velocity of the targets in both `x` and `z` where `y` is the vertical direction.
 
+The actions that the agent can take during training, which it will take to try to get rewards, are:
+
+* Trigger the punch attack.
+
+* Rotate the agent about the `y` direction in a + or - direction.
+
+No actual values are given to the agent, it will try different values for each action and figure out which values will increase the policy reward.
+
 Training 9 agents in parallel was done for about 6 hours:
 
 <p align="center">
@@ -280,7 +288,41 @@ The results of the initial training were promising:
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/early_test_better.gif" width = "700" height="350"/>
 </p>
 
-The agent appears to try to seek out the target cube, and does try to punch it. Not too bad! At this point I wanted to encourage the agent to seek the target cube faster. I increased the time-based reward for being able to see an enemy, and after letting it train all night to my dismay, the agent did not perform better. In fact, since the agent gets a time-based penalty for not seeing the target, a time-based reward for seeing it, a smallish reward for punching it, and a larger reward for destroying it...the agent was able to maximize the policy reward by simply looking at the static target. By continuing to look at it, it got rewarded whereas if it destroyed it, it would have to start looking around for the next target and be penalized. The agent learned to maximize the reward, but not in the way I had intended it to do so.
+The agent appears to try to seek out the target cube, and does try to punch it. Not too bad! At this point I wanted to encourage the agent to seek the target cube faster. I increased the time-based reward for being able to see an enemy, and after letting it train all night to my dismay, the agent did not perform better. In fact, since the agent gets a time-based penalty for not seeing the target, a time-based reward for seeing it, a smallish reward for punching it, and a larger reward for destroying it...the agent was able to maximize the policy reward by simply looking at the static target. By continuing to look at it, it got rewarded whereas if it destroyed it, it would have to start looking around for the next target and be penalized. The agent learned to maximize the reward, but not in the way I had intended it to do so. 
+
+### Comparing Two Models with Different Rewards
+The values associated with the rewards have been vauge so far in that I have referred to them in a relative magnitude. There is an arbitrary aspect to the actual values because I could assign a reward of 1 for an action, or 1000. The relative magnitudes of the rewards, as they relate to each other is what is important. I trained two models, and looked at how the training compared. The model rewards are:
+
+Model_1:
+
+* Hitting a target : 0.2
+
+* Destroying a target : 1.0
+
+* Seeing a target : 1/60 per frame
+
+* Not seeing a target : -1/60 per frame
+
+Model_2:
+
+* Hitting a target : 1.0
+
+* Destroying a target : 5.0
+
+* Seeing a target : 2/60 per frame
+
+* Not seeing a target : -2/60 per frame
+
+Note that if the game runs at 60 frames per second, these time-based rewards can be understood as a time frequency instead of a frame frequency.
+
+Looking at how the models compared is tricky because if the reward system is altered, direct comparisons to policy reward will not make sense. For instance,
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs_puncher.png" width="700" height="580"/>
+</p>
+
+A larger net reward can just be a factor of the increase in reward magnitude for performing specific actions. 
+
 
 
 ### Rebuilding Game Environment

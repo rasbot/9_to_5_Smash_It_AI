@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: 4c37b8b8f457242469fdb4264d4bd5d0
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cooler_Base
+    100002: Cup
+    100004: Cup_Holder
+    100006: Nozzle
+    100008: Nozzle1
+    100010: Nozzle_Base
+    100012: Nozzle_Base1
+    100014: Nozzle_Switch
+    100016: Nozzle_Switch1
+    100018: //RootNode
+    100020: Water_jug
+    400000: Cooler_Base
+    400002: Cup
+    400004: Cup_Holder
+    400006: Nozzle
+    400008: Nozzle1
+    400010: Nozzle_Base
+    400012: Nozzle_Base1
+    400014: Nozzle_Switch
+    400016: Nozzle_Switch1
+    400018: //RootNode
+    400020: Water_jug
+    2300000: Cooler_Base
+    2300002: Cup
+    2300004: Cup_Holder
+    2300006: Nozzle
+    2300008: Nozzle1
+    2300010: Nozzle_Base
+    2300012: Nozzle_Base1
+    2300014: Nozzle_Switch
+    2300016: Nozzle_Switch1
+    2300018: Water_jug
+    3300000: Cooler_Base
+    3300002: Cup
+    3300004: Cup_Holder
+    3300006: Nozzle
+    3300008: Nozzle1
+    3300010: Nozzle_Base
+    3300012: Nozzle_Base1
+    3300014: Nozzle_Switch
+    3300016: Nozzle_Switch1
+    3300018: Water_jug
+    4300000: Cooler_Base
+    4300002: Water_jug
+    4300004: Cup_Holder
+    4300006: Cup
+    4300008: Nozzle
+    4300010: Nozzle_Base
+    4300012: Nozzle_Switch
+    4300014: Nozzle1
+    4300016: Nozzle_Base1
+    4300018: Nozzle_Switch1
+    11100000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 3
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.35
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

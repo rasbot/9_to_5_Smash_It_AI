@@ -15,7 +15,6 @@ public class collision_detection : MonoBehaviour
     {
         if (other.tag == "Target")
         {
-            print("target hit");
             puncher.setIsHitting(true);
         }
 	}

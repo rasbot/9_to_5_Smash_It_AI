@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: dfa2e7fda0671cb4fa271995b1ff9ec5
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: boardRoomWindows
+    100002: boardRoomWindows 1
+    100004: bRoomGlass
+    100006: bRoomGlass 1
+    100008: ceiling
+    100010: ceiling 1
+    100012: dblDoorLeft
+    100014: dblDoorLeft 1
+    100016: dblDoors
+    100018: dblDoors 1
+    100020: door
+    100022: door 1
+    100024: doorhandleA
+    100026: doorhandleA 1
+    100028: doorhandleB
+    100030: doorhandleB 1
+    100032: floor
+    100034: floor 1
+    100036: hallGlass
+    100038: hallGlass 1
+    100040: hallway
+    100042: hallway 1
+    100044: innerWall
+    100046: innerWall 1
+    100048: //RootNode
+    100050: office
+    100052: office 1
+    100054: officeDoor
+    100056: officeDoor 1
+    100058: wallA
+    100060: wallA 1
+    100062: wallB
+    100064: wallB 1
+    100066: wallC
+    100068: wallC 1
+    100070: wallD
+    100072: wallD 1
+    100074: windows
+    100076: windows 1
+    400000: boardRoomWindows
+    400002: boardRoomWindows 1
+    400004: bRoomGlass
+    400006: bRoomGlass 1
+    400008: ceiling
+    400010: ceiling 1
+    400012: dblDoorLeft
+    400014: dblDoorLeft 1
+    400016: dblDoors
+    400018: dblDoors 1
+    400020: door
+    400022: door 1
+    400024: doorhandleA
+    400026: doorhandleA 1
+    400028: doorhandleB
+    400030: doorhandleB 1
+    400032: floor
+    400034: floor 1
+    400036: hallGlass
+    400038: hallGlass 1
+    400040: hallway
+    400042: hallway 1
+    400044: innerWall
+    400046: innerWall 1
+    400048: //RootNode
+    400050: office
+    400052: office 1
+    400054: officeDoor
+    400056: officeDoor 1
+    400058: wallA
+    400060: wallA 1
+    400062: wallB
+    400064: wallB 1
+    400066: wallC
+    400068: wallC 1
+    400070: wallD
+    400072: wallD 1
+    400074: windows
+    400076: windows 1
+    4300000: floor
+    4300002: wallA
+    4300004: dblDoors
+    4300006: boardRoomWindows
+    4300008: wallB
+    4300010: innerWall
+    4300012: door
+    4300014: wallC
+    4300016: wallD
+    4300018: windows
+    4300020: doorhandleA
+    4300022: doorhandleB
+    4300024: Regroup12
+    4300026: Duplicate14
+    4300028: Box02
+    4300030: Box03
+    4300032: Duplicate15
+    4300034: ceiling
+    4300036: dblDoor
+    4300038: Duplicate17
+    4300040: Duplicate18
+    4300042: Duplicate19
+    4300044: bRoomGlass
+    4300046: dblDoorLeft
+    4300048: hallway
+    4300050: officeDoor
+    4300052: office
+    4300054: Duplicate28
+    4300056: hallGlass
+    7400000: blank
+    11100000: //RootNode
+    13700000: boardRoomWindows
+    13700002: bRoomGlass
+    13700004: ceiling 1
+    13700006: dblDoorLeft
+    13700008: dblDoors 1
+    13700010: door
+    13700012: doorhandleA 1
+    13700014: doorhandleB 1
+    13700016: floor 1
+    13700018: hallGlass 1
+    13700020: hallway 1
+    13700022: innerWall 1
+    13700024: office 1
+    13700026: officeDoor 1
+    13700028: wallA 1
+    13700030: wallB 1
+    13700032: wallC 1
+    13700034: wallD
+    13700036: windows
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 3
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.4
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

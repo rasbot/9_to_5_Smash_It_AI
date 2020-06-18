@@ -154,6 +154,14 @@ When looking at the hidden layers within the neural net, equal training batches 
 
 For these runs, training times were around 1 hour. It appears that using one hidden layer is optimal for this amount of training since the policy reward was higher for the entire training session.
 
+Another important metric to look at is the policy entropy. The policy's goal is to increase the reward over the training time, but it is also trying to decrease entropy. Lower entropy means that the policy is more sure about which actions to take to increase the reward.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_layers.png" width="700" height="580"/>
+</p>
+
+Using this metric, it appears that 2 hidden layers does a better job of decreasing entropy. Both reward and entropy are important to consider when deciding on an optimal value for a particular hyperparameter.
+
 #### Learning Rate
 The learning rate of the model was also examined. 
 
@@ -165,12 +173,27 @@ If the learning rate is too small, the policy will be updated very slowly. If th
 
 This is evident in the higher values of the learning rate. Both the `0.03` and `0.008` trainings show erratic policy rewards as the policy is updated. A learning rate of `0.003` seemed to be optimal here.
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_lr.png" width="700" height="580"/>
+</p>
+
+As expected, the higher learning rates that overfit the training data actually increase in entropy during training. This makes sense because they are updating the policy too quickly and instead of converging on higher policy rewards, they cause wild fluctuations as the policy is trying erratic actions instead of honing in on the actions that will increase the reward. This plot reinforces the optimal learning rate of `0.003` since it not only increases the policy reward the most, it decreases entropy the most as well.
+
+
 #### Summary Frequency
 The summary frequency was compared for different training runs as well. This is essentially how often the policy is updated. If the summary frequency is low, the policy will update more often, and the policy reward value will fluctuate compared to a lower summary frequency where the update occurs with larger batches and is generally smoother.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_freq.png" width="700" height="580"/>
 </p>
+
+It appears that a summary frequency of `10000` looks optimal since it has a high policy reward and is less erratic than `3000`. How does the entropy plot look?
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_freq.png" width="700" height="580"/>
+</p>
+
+It looks like `20000` is most likely the optimal value for summary frequency since it is smooth (less erratic), maximizes the policy reward fairly well, and has the lowest entropy compared to other values.
 
 #### Number of Parallel Agents Training
 This one is not exactly a hyperparameter, but since the agents can be trained in parallel, the number of agents training was compared. The intuition here is that the more agents that are trained in parallel, the better trained the model will be after some amount of training time. If too many agents are training it could bottleneck training due to the CPU/GPU not being able to handle the number of agents.
@@ -201,6 +224,18 @@ The take-home message is that much longer training times need to be explored whi
 <!-- SAC WALKER -->
 ### SAC Training
 SAC training was much longer than PPO. Training time is a cost to companies, so considering how these two policies compare is a balance between performance and training time. After training an agent with SAC for around 8 hours, the results were not impressive. 
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/3models.gif" width="600" height="450"/>
+</p>
+
+PPO (long) and SAC were trained for the same number of steps. PPO (short) was trained for about a half hour. Clearly PPO did a better job for the same number of steps...but what about training time?
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/time_PPO_SAC.png" width="600" height="450"/>
+</p>
+
+For the same number of steps, PPO was much faster! Not only was it faster, it has a better performance than the SAC model. For the walkers and punchers, PPO seems to be the optimal policy.
 
 ### Extensions
 Since the agents are trained in the environment and will learn to take actions that increase the reward, changing the features of the agent can be done before training. In this example, limb length was increased to create a lanky agent. Using PPO, the agent was trained to walk for the same training time that previous models were trained on. 
@@ -293,7 +328,7 @@ The agent appears to try to seek out the target cube, and does try to punch it. 
 ### Comparing Two Models with Different Rewards
 The values associated with the rewards have been vauge so far in that I have referred to them in a relative magnitude. There is an arbitrary aspect to the actual values because I could assign a reward of 1 for an action, or 1000. The relative magnitudes of the rewards, as they relate to each other is what is important. I trained two models, and looked at how the training compared. The model rewards are:
 
-Model_1:
+Model_1 :
 
 * Hitting a target : 0.2
 
@@ -305,13 +340,13 @@ Model_1:
 
 Model_2:
 
-* Hitting a target : 1.0
+* Hitting a target : 0.2
 
-* Destroying a target : 5.0
+* Destroying a target : 1.0
 
-* Seeing a target : 2/60 per frame
+* Seeing a target : __2/60__ per frame
 
-* Not seeing a target : -2/60 per frame
+* Not seeing a target : -1/60 per frame
 
 Note that if the game runs at 60 frames per second, these time-based rewards can be understood as a time frequency instead of a frame frequency.
 
@@ -321,7 +356,13 @@ Looking at how the models compared is tricky because if the reward system is alt
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs_puncher.png" width="700" height="580"/>
 </p>
 
-A larger net reward can just be a factor of the increase in reward magnitude for performing specific actions. 
+A larger net reward can just be a factor of the increase in reward magnitude for performing specific actions. A more telling metric would be to compare the policy entropy between the models.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_vs_steps_23.png" width="700" height="580"/>
+</p>
+
+Looking at this plot, the second model appears to have lower policy entropy for the same number of steps. The entropy will go down as the model becomes more sure of which actions will lead to a maximal policy reward. 
 
 
 

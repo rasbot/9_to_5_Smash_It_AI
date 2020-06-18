@@ -202,6 +202,14 @@ This one is not exactly a hyperparameter, but since the agents can be trained in
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_time_agents.png" width="700" height="580"/>
 </p>
 
+Looking at the entropy,
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_time_agents.png" width="700" height="580"/>
+</p>
+
+
+
 These training runs were all of equal step number. This shows that by training more agents, the training time is reduced, and it appears that for 3, 6, and 9 agents that the reward is proportional to the number of agents. However, when training 30 agents, there is no increase in performance. This could be due to the bottlenecking issue mentioned above.
 
 #### Comparing Tuned Model to the Default

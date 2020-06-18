@@ -1,0 +1,46 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1591421076",
+        "python_version": "3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\natha\\Miniconda3\\envs\\tensorflow-gpu\\Scripts\\mlagents-learn config/ppo/Puncher.yaml --run-id=PunchTest3",
+        "mlagents_version": "0.16.1",
+        "mlagents_envs_version": "0.16.1",
+        "communication_protocol_version": "1.0.0",
+        "tensorflow_version": "2.1.0",
+        "end_time_seconds": "1591421092"
+    },
+    "total": 15.523728000000002,
+    "count": 1,
+    "self": 0.32904580000000117,
+    "children": {
+        "run_training.setup": {
+            "total": 0.0060787000000002145,
+            "count": 1,
+            "self": 0.0060787000000002145
+        },
+        "TrainerController.start_learning": {
+            "total": 15.188603500000001,
+            "count": 1,
+            "self": 0.0006868999999998238,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 15.187255400000002,
+                    "count": 1,
+                    "self": 15.187255400000002
+                },
+                "trainer_threads": {
+                    "total": 1.900000000887303e-06,
+                    "count": 1,
+                    "self": 1.900000000887303e-06
+                },
+                "TrainerController._save_model": {
+                    "total": 0.0006592999999988081,
+                    "count": 1,
+                    "self": 0.0006592999999988081
+                }
+            }
+        }
+    }
+}

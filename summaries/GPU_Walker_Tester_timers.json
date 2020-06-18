@@ -1,0 +1,36 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1590887050",
+        "python_version": "3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\natha\\Miniconda3\\envs\\tensorflow-gpu\\Scripts\\mlagents-learn config/ppo/Walker.yaml --run-id=GPU_Walker_Tester",
+        "mlagents_version": "0.16.1",
+        "mlagents_envs_version": "0.16.1",
+        "communication_protocol_version": "1.0.0",
+        "tensorflow_version": "2.1.0",
+        "end_time_seconds": "1590887059"
+    },
+    "total": 9.128600299999999,
+    "count": 1,
+    "self": 0.3297797999999972,
+    "children": {
+        "run_training.setup": {
+            "total": 0.006247800000000137,
+            "count": 1,
+            "self": 0.006247800000000137
+        },
+        "TrainerController.start_learning": {
+            "total": 8.792572700000001,
+            "count": 1,
+            "self": 0.007717700000000605,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 8.784855,
+                    "count": 1,
+                    "self": 8.784855
+                }
+            }
+        }
+    }
+}

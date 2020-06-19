@@ -29,31 +29,33 @@
 </p> -->
 
 
-
-<!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
 * [Introduction](#introduction)
-* [Project Scope](#scope)
-* [Reinforcement Learning Algorithms](#algorithms)
-  * [PPO](#ppo)
-  * [SAC](#sac)
-* [Walking Trainer](#walking)
-  * [Untrained Walker](#untrained)
-  * [PPO Training](#ppotraining)
-  * [SAC Training](#sactraining)
+* [Project Scope](#project-scope)
+* [Reinforcement Learning Algorithms](#reinforcement-learning-algorithms)
+  * [Proximal Policy Optimization](#proximal-policy-optimization)
+    * [Hidden Layers](#hidden-layers)
+    * [Learning Rate](#learning-rate)
+    * [Summary Frequency](#summary-frequency)  
+    * [Number of Parallel Agents Training](#number-of-parallel-agents-training)
+    * [Comparing Tuned Model to the Default](#comparing-tuned-model-to-the-default)
+  * [Soft Actor Critic](#soft-actor-critic)
+* [Walking Trainer](#walking-trainer)
+  * [Untrained Walker](#untrained-walker)
+  * [PPO Training](#ppo-training)
+  * [SAC Training](#sac-training)
   * [Extensions](#extensions)
-* [Puncher Trainer](#punching)
+* [Puncher Trainer](#puncher-trainer)
   * [Rewards](#rewards)
-  * [Scaled Down Version](#scaled)
-  * [Rebuilding Game Environment](#smashit)
-* [Next Steps](#nextsteps)
+  * [Scaled Down Version](#scaled-down-version)
+  * [Comparing Two Models with Different Rewards](#comparing-two-models-with-different-rewards)
+  * [Rebuilding Game Environment](#rebuilding-game-environment)
+* [Next Steps](#next-steps)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
 
 
-
-<!-- INTRODUCTION -->
 ## Introduction
 ---
 Reinforcement learning has many useful applications such as robotics and self-driving cars. Researchers in artificial intelligence (AI) are constantly improving learning algorithms, and benefit from the ability to train and test their models in different environments. By enabling testing and training within a simulated environment, algorithms can be improved more rapidly. These ideal environments have a physics engine as well as graphics rendering. This is a benefit as well for companies that need to test and deploy trained models in areas like robotics. Having a fully simulated robot within a simulated environment allows for rapid and cost-effective testing before testing in a real environment with a real robot.
@@ -90,7 +92,6 @@ Environments and game objects are created in Unity giving full control over the 
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/unity.PNG" width="800" height="auto"/>
 </p>
 
-<!-- scope -->
 ## Project Scope
 ---
 In 2018 I published a mobile game to the Google Play store called `9 to 5 Smash It`. 
@@ -301,7 +302,7 @@ Seems simple enough, but the agent also needs to be encouraged to find enemies q
 
 The process used to detect an enemy will be discussed below. To integrate the machine learning training into the game environment, I had to start smaller and create a minimal agent and environment.
 
-### Simplified Version
+### Scaled Down Version
 The basic game mechanics are coded into this simplified environment. The puncher agent has a cube object that is animated in a similar way to act as the punching glove (referred to as the puncher cube). The punch animation is triggered, and the cube will move outward and back. The punch cube has a box collider attached to it, and uses logic that will check if a collision was made with the enemy cube (by checking the tag on the game object to see if it is equal to "Target"). If it hits the cube, it will increment a counter and once that counter reaches 5 hits, the target cube will be destroyed.
 
 Very early tests showed some issues that needed to be resolved, like clamping the puncher agents rotations in unintended directions.
@@ -349,7 +350,7 @@ The results of the initial training were promising:
 The agent appears to try to seek out the target cube and does try to punch it. Not too bad! At this point I wanted to encourage the agent to seek the target cube faster. I increased the time-based reward for being able to see an enemy, and after letting it train all night to my dismay, the agent did not perform better. In fact, since the agent gets a time-based penalty for not seeing the target, a time-based reward for seeing it, a smallish reward for punching it, and a larger reward for destroying it...the agent was able to maximize the policy reward by simply looking at the static target. By continuing to look at it, it got rewarded whereas if it destroyed it, it would have to start looking around for the next target and be penalized. The agent learned to maximize the reward, but not in the way I had intended it to do so. 
 
 ### Comparing Two Models with Different Rewards
-The values associated with the rewards have been vauge so far in that I have referred to them in a relative magnitude. There is an arbitrary aspect to the actual values because I could assign a reward of 1 for an action, or 1000. The relative magnitudes of the rewards, as they relate to each other is what is important. I trained two models, and looked at how the training compared. The model rewards are:
+The values associated with the rewards have been vauge so far in that I have referred to them in a relative magnitude. There is an arbitrary aspect to the actual values because I could assign a reward of 1 for an action, or 1000. The relative magnitudes of the rewards, as they relate to each other is what is important. I trained two models and looked at how the training compared. The model rewards are:
 
 Model_1 :
 
@@ -389,7 +390,7 @@ Looking at this plot, the second model appears to have lower policy entropy for 
 
 ### Rebuilding Game Environment
 
-After training a model in a simlified environment, adding elements of 9 to 5 Smash It was done to start building up to the game. The player in the game plays in first person mode so there is no actual game object for the player character. The player has a glove on a spring that is used to punch and for sake of being able to see the player character during training and testing, a bot from the game was used for the player character. The bot has the glove attached so it can punch.
+After training a model in a simplified environment, adding elements of 9 to 5 Smash It was done to start building up to the game. The player in the game plays in first person mode so there is no actual game object for the player character. The player has a glove on a spring that is used to punch and for sake of being able to see the player character during training and testing, a bot from the game was used for the player character. The bot has the glove attached so it can punch.
 
 The enemies in the game move toward the player and do damage when they make contact with them. As a first step the target cube was replaced with a game character as well, and the environment skybox from the game was added as well.
 
@@ -399,9 +400,9 @@ The enemies in the game move toward the player and do damage when they make cont
 
 When watching the trained model, a few things stand out.
 
-1. The agent tends to spam  the attack button. This is actually a decent strategy in a video game if there is no penalty for attacking too much. In the real world we need to optimize our energy output, and attacking when not hitting the target is not efficient. In this case there is no penalty to keep attacking and much like myself when I play some games, mashing the attack button does get the job done.
+1. The agent tends to spam the attack button. This is actually a decent strategy in a video game if there is no penalty for attacking too much. In the real world we need to optimize our energy output and attacking when not hitting the target is not efficient. In this case there is no penalty to keep attacking and much like myself when I play some games, mashing the attack button does get the job done.
 
-2. The agent seems to constantly rotate which isn't a terrible stategy as well. A real player can see more than what is directly in front of then and peripheral vision can help us know which way to turn. We also have other sensory inputs like hearing that helps us to quickly turn in the direction of an event. Fine tuning the inputs into the neural net, and incentivising quicker movements would help this process.
+2. The agent seems to constantly rotate which is not a terrible strategy as well. A real player can see more than what is directly in front of then and peripheral vision can help us know which way to turn. We also have other sensory inputs like hearing that helps us to quickly turn in the direction of an event. Fine tuning the inputs into the neural net and incentivizing quicker movements would help this process.
 
 3. The agent sometimes turns past the target, and even after hitting it sometimes. This could be helped with changing the rewards given after a successful punch.
 
@@ -411,15 +412,41 @@ The idea here is to add multiple targets to the environment. The targets will no
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/FullTest.gif" width="800" height="auto"/>
 </p>
 
-This is a little wonky, but it is going in the right direction. This test was done with different walker agents including the lanky one. The trained walkers do not walk very well in this environment despite the fact that they are just trying to move toward the player. The player is set as their navigation target, but they perform a lot less effectively in the office environment than they do in an open plane. Maybe the o
+This is a little wonky, but it is going in the right direction. This test was done with different walker agents including the lanky one. The trained walkers do not walk very well in this environment despite the fact that they are just trying to move toward the player. The player is set as their navigation target, but they perform a lot less effectively in the office environment than they do in an open plane. Maybe the models prefer to work remotely instead of coming into the office!
 
 ## Next Steps
-Additional aspects can be hard coded into the enemy bots such as the ability to turn and look at the player, as well as simple navigation to move in the direction of the player. Obstacle avoidance should be part of the training.
 
-<!-- CONTACT -->
+Next steps for this project will include recursively training the enemy bot walkers and the player puncher to see if they can learn from each other.
+
+For the walkers:
+
+* Add legs and rig the models so they can use the walker models.
+
+* Additional aspects can be hard coded into the enemy bots such as the ability to turn and look at the player, as well as simple navigation to move in the direction of the player. 
+
+* Train the walkers in the 9 to 5 Smash It environment. Obstacle avoidance should be part of the training.
+
+For the punchers:
+
+* Fix the issue with collision detection. This can be done by changing how hits are detected.
+
+* Fine tune the reward system, which will take many training sessions to understand each change.
+
+* After updating the reward system, allow for detection of multiple enemy bots. Retrain with moving bots.
+
+* Tune model hyperparameters which will take several training sessions to understand each change.
+
+## Conclusion
+
+Unity is a great engine to create simulated environments as well as simulated agents to train machine learning models on. The Unity team's ML Toolkit is a great way to create a pipeline from the Unity engine, through C#, into their Python API to train and deploy models. This can be extremely useful for robotics, self-driving cars, and video games. Working with Unity and the ML Toolkit was impressive, and I look forward to what the Unity team has in the future for machine learning in simulated environments!
+
 ## Contact
 
 Nathan Rasmussen - nathan.f.rasmussen@gmail.com
+
+Linkedin: [https://www.linkedin.com/in/nathanfrasmussen/](https://www.linkedin.com/in/nathanfrasmussen/)
+
+Unity Connect: [https://connect.unity.com/u/nathan-rasmussen](https://connect.unity.com/u/nathan-rasmussen)
 
 Project Link: [https://github.com/rasbot/Reinforcement_Learning_in_Unity](https://github.com/rasbot/Reinforcement_Learning_in_Unity)
 
@@ -428,9 +455,9 @@ Project Link: [https://github.com/rasbot/Reinforcement_Learning_in_Unity](https:
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
+* [Galvanize Data Science](https://www.galvanize.com/data-science-bootcamp) 
+* [Unity ML Toolkit](https://github.com/Unity-Technologies/ml-agents)
+* [Martian Games](www.martiangames.com)
 
 
 

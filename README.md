@@ -458,7 +458,7 @@ Project Link: [https://github.com/rasbot/Reinforcement_Learning_in_Unity](https:
 ---
 * [Galvanize Data Science](https://www.galvanize.com/data-science-bootcamp) 
 * [Unity ML Toolkit](https://github.com/Unity-Technologies/ml-agents)
-* [Martian Games](www.martiangames.com)
+* [Martian Games](https://www.martiangames.com)
 
 
 

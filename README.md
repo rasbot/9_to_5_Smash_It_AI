@@ -283,6 +283,7 @@ Looking back at the PPO trained standard walker, I wanted to look at how the mod
 The model seems to try to compensate for the uneven mass distribution by pulling the hand closer to the center of mass. The model would perform much better if it was trained with the different agents, but it is interesting to see how the trained model adapts to this change.
 
 ## Puncher Trainer
+---
 The player character is more challenging to train. The player needs to look around the game environment and identify enemy bots. Once identified, the player has to punch the bot until it is destroyed, while trying to prevent any bots from reaching the player, as that lowers the players health bar. The reward system needs to be outlined before the puncher training can begin. 
 
 Writing the scripts in C# to read in the right variables to feed into the neural net was tricky. During training, the time scale of the environment is increased to about 10x. This can cause issues with the physics of the game. The physics will update every frame, and if the animation for the puncher is sped up and moves too fast, the collision detection will not register a hit. Training game objects to interact with other game objects via collision detection will suffer from this problem. One way around this for testing would be to register a hit if the agent was looking directly at a target while the animation to punch was triggered. We could then safely assume a hit should be registered.
@@ -415,7 +416,7 @@ The idea here is to add multiple targets to the environment. The targets will no
 This is a little wonky, but it is going in the right direction. This test was done with different walker agents including the lanky one. The trained walkers do not walk very well in this environment despite the fact that they are just trying to move toward the player. The player is set as their navigation target, but they perform a lot less effectively in the office environment than they do in an open plane. Maybe the models prefer to work remotely instead of coming into the office!
 
 ## Next Steps
-
+---
 Next steps for this project will include recursively training the enemy bot walkers and the player puncher to see if they can learn from each other.
 
 For the walkers:
@@ -437,11 +438,11 @@ For the punchers:
 * Tune model hyperparameters which will take several training sessions to understand each change.
 
 ## Conclusion
-
+---
 Unity is a great engine to create simulated environments as well as simulated agents to train machine learning models on. The Unity team's ML Toolkit is a great way to create a pipeline from the Unity engine, through C#, into their Python API to train and deploy models. This can be extremely useful for robotics, self-driving cars, and video games. Working with Unity and the ML Toolkit was impressive, and I look forward to what the Unity team has in the future for machine learning in simulated environments!
 
 ## Contact
-
+---
 Nathan Rasmussen - nathan.f.rasmussen@gmail.com
 
 Linkedin: [https://www.linkedin.com/in/nathanfrasmussen/](https://www.linkedin.com/in/nathanfrasmussen/)
@@ -454,7 +455,7 @@ Project Link: [https://github.com/rasbot/Reinforcement_Learning_in_Unity](https:
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-
+---
 * [Galvanize Data Science](https://www.galvanize.com/data-science-bootcamp) 
 * [Unity ML Toolkit](https://github.com/Unity-Technologies/ml-agents)
 * [Martian Games](www.martiangames.com)

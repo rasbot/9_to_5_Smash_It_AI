@@ -2,14 +2,14 @@
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/punchy2.png" width="1600" height="400"/>
+  <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/punchy2.png" width="1600" height="auto"/>
 </p>
 
 <!-- PROJECT LOGO -->
 <br />
 <!-- <p align="center">
   <a href="https://github.com/rasbot/Reinforcement_Learning_in_Unity">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/robot_fail.gif" alt="Logo" width="600" height="400">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/robot_fail.gif" alt="Logo" width="600" height="auto">
   </a>
 
   <h3 align="center">Reinforcement Learning in 3D Simulated Environments</h3> -->
@@ -61,7 +61,7 @@ Reinforcement learning has many useful applications such as robotics and self-dr
 Machine learning (ML) models depend on what type of learning or predictions are involved.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/ML_map.PNG" width="400" height="200"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/ML_map.PNG" width="400" height="auto"/>
 </p>
 
 If the model will make a prediction of a specific target or label from a set of features, supervised learning can be used. If the data is unstructured or unlabeled, and the target feature is not known, unsupervised learning can be used to find relations between features. If the goal is to have a model learn from the environment through interaction, reinforcement learning is used.
@@ -69,13 +69,13 @@ If the model will make a prediction of a specific target or label from a set of 
 Reinforcement learning involves an __agent__, which could be a robot, a self-driving car, or a video game character, that interacts and learns from the __environment__. The agent observes the environment, takes __actions__, and receives __rewards__ based on those actions. The reward could be positive or negative, such as if a robot moves closer to its target it would get a positive reward, and if it moves away from its target it would get a negative reward. The goal of the model is to maximize the reward to perform a specific task. An agent might not ever receive a positive reward but get penalized such as an agent navigating a maze. The penalty might be a negative reward for each step and the model trains the agent to minimize the penalty. The algorithm used to train the model is called the __policy__. This will be discussed more later.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/agent_env.PNG" width="500" height="167"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/agent_env.PNG" width="500" height="auto"/>
 </p>
 
 The Unity game engine provides an editor which allows for ML algorithms to interact and learn from a variety of simulated environments. Recently the Unity team released version 1.0 of their [ML Agents toolkit](https://github.com/Unity-Technologies/ml-agents). This toolkit, along with the Unity editor, provides a user with the ability to create 3D simulated environments, a Python API to control and integrate ML algorithms into the environments, and a learning pipeline using C# to collect data from the environment, implement agent actions, and collect rewards. Agents can be trained and tested in the Unity engine using the ML agents toolkit.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/Unity_pipeline.PNG" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/Unity_pipeline.PNG" width="600" height="auto"/>
 </p>
 
 <p style="text-align: center;">
@@ -87,7 +87,7 @@ The Python API interfaces with the Unity game engine to create and control ML al
 Environments and game objects are created in Unity giving full control over the physics of the environment.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/unity.PNG" width="700" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/unity.PNG" width="800" height="auto"/>
 </p>
 
 <!-- scope -->
@@ -96,13 +96,13 @@ Environments and game objects are created in Unity giving full control over the 
 In 2018 I published a mobile game to the Google Play store called `9 to 5 Smash It`. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/9to5.gif" width="700" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/9to5.gif" width="700" height="auto"/>
 </p>
 
 The game was built in the Unity game engine and coded in C#. The game mechanics use a `magic window` which uses a modified GoogleVR APK to track the phones rotation. This gives 3 degrees of freedom which the player can use to move their phone around to see the game world in 360 degrees. The player can do a punch attack by pushing their phone forward, using the phones accelerometer to scale the attack. The harder the player punches the phone forward, the larger the magnitude of the attack in the game. 9 to 5 Smash It is set in an office environment, where the player needs to smash their way through the competition to climb the corporate ladder. Enemies are office-bots which the player needs to punch until they are destroyed. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/smash_it.gif" width="700" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/smash_it.gif" width="700" height="auto"/>
 </p>
 
 The end goal of this project is to train the office-bots to walk and seek out the player, and to train the player to seek out bots and destroy them using reinforcement learning. Using Unity will allow the ability to feed in the specific inputs to the neural net used in deep reinforcement learning. The game objects will be trained within the engine, and the trained models will be deployed in the engine to control the characters. Two algorithms were used to train the walkers, which will be discussed below. 
@@ -130,7 +130,7 @@ In order to have the robots walk, previous 3D models of the bots would have to b
 When a walker is untrained, it will just fall over. It has no ability to control the limbs of the walker body. It is not even being told to try to move around since it is not being trained yet.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/UNTRAINED.gif" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/UNTRAINED.gif" width="600" height="auto"/>
 </p>
 
 Let's look at how the training process goes for both PPO and SAC.
@@ -140,7 +140,7 @@ Let's look at how the training process goes for both PPO and SAC.
 Training the walkers was done with several agents being trained in parallel. During training, the agents are trying to see how to move in order to maximize their reward for each training batch. For these plots, the `Step Number` is the number of training steps the policy has gone through, and the `Policy Reward` is the total reward for the model as it trains.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/training.gif" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/training.gif" width="600" height="auto"/>
 </p>
 
 In order to attempt to increase the performance of the model, some of the hyperparameters were tuned. The optimal value of each is related to the value which produces the largest policy reward over the training time.
@@ -149,7 +149,7 @@ In order to attempt to increase the performance of the model, some of the hyperp
 When looking at the hidden layers within the neural net, equal training batches with different numbers of hidden layers were compared.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_layers.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_layers.png" width="700" height="auto"/>
 </p>
 
 For these runs, training times were around 1 hour. It appears that using one hidden layer is optimal for this amount of training since the policy reward was higher for the entire training session.
@@ -157,7 +157,7 @@ For these runs, training times were around 1 hour. It appears that using one hid
 Another important metric to look at is the policy entropy. The policy's goal is to increase the reward over the training time, but it is also trying to decrease entropy. Lower entropy means that the policy is more sure about which actions to take to increase the reward.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_layers.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_layers.png" width="700" height="auto"/>
 </p>
 
 Using this metric, it appears that 2 hidden layers does a better job of decreasing entropy. Both reward and entropy are important to consider when deciding on an optimal value for a particular hyperparameter.
@@ -166,7 +166,7 @@ Using this metric, it appears that 2 hidden layers does a better job of decreasi
 The learning rate of the model was also examined. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_lr.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_lr.png" width="700" height="auto"/>
 </p>
 
 If the learning rate is too small, the policy will be updated very slowly. If the learning rate is too high, the model will be overfit and will have trouble converging on the maximal policy reward.
@@ -174,7 +174,7 @@ If the learning rate is too small, the policy will be updated very slowly. If th
 This is evident in the higher values of the learning rate. Both the `0.03` and `0.008` trainings show erratic policy rewards as the policy is updated. A learning rate of `0.003` seemed to be optimal here.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_lr.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_lr.png" width="700" height="auto"/>
 </p>
 
 As expected, the higher learning rates that overfit the training data actually increase in entropy during training. This makes sense because they are updating the policy too quickly and instead of converging on higher policy rewards, they cause wild fluctuations as the policy is trying erratic actions instead of honing in on the actions that will increase the reward. This plot reinforces the optimal learning rate of `0.003` since it not only increases the policy reward the most, it decreases entropy the most as well.
@@ -184,13 +184,13 @@ As expected, the higher learning rates that overfit the training data actually i
 The summary frequency was compared for different training runs as well. This is essentially how often the policy is updated. If the summary frequency is low, the policy will update more often, and the policy reward value will fluctuate compared to a lower summary frequency where the update occurs with larger batches and is generally smoother.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_freq.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_freq.png" width="700" height="auto"/>
 </p>
 
 It appears that a summary frequency of `10000` looks optimal since it has a high policy reward and is less erratic than `3000`. How does the entropy plot look?
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_freq.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_freq.png" width="700" height="auto"/>
 </p>
 
 It looks like `20000` is most likely the optimal value for summary frequency since it is smooth (less erratic), maximizes the policy reward fairly well, and has the lowest entropy compared to other values.
@@ -199,13 +199,13 @@ It looks like `20000` is most likely the optimal value for summary frequency sin
 This one is not exactly a hyperparameter, but since the agents can be trained in parallel, the number of agents training was compared. The intuition here is that the more agents that are trained in parallel, the better trained the model will be after some amount of training time. If too many agents are training it could bottleneck training due to the CPU/GPU not being able to handle the number of agents.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_time_agents.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_time_agents.png" width="700" height="auto"/>
 </p>
 
 Looking at the entropy,
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_time_agents.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_time_agents.png" width="700" height="auto"/>
 </p>
 
 
@@ -216,13 +216,13 @@ These training runs were all of equal step number. This shows that by training m
 Comparing training between the tuned model and the default gave what appeared to be slightly better results for the tuned model.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs_trunc.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs_trunc.png" width="700" height="auto"/>
 </p>
 
 The tuned model appears to be performing better than the default for most of the trainings. However, they seem to converge around the same reward value near the end. Increasing training time for both models gave more telling results.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs.png" width="700" height="auto"/>
 </p>
 
 Clearly this shows that the default model did much better than the tuned model. One reason is most likely due to the default model having a learning rate that was an order of magnitude larger than the tuned model. In shorter training times it appeared that the selected learning rate was ideal. With longer training, this shows that there are non-linear effects that are not accounted for with shorter training times. It could also be that the hyperparameters are coupled and that combinations of hyperparameter values need to be explored.
@@ -234,19 +234,19 @@ The take-home message is that much longer training times need to be explored whi
 SAC training was much longer than PPO. Training time is a cost to companies, so considering how these two policies compare is a balance between performance and training time. After training an agent with SAC for around 8 hours, the results were not impressive. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/3models.gif" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/3models.gif" width="600" height="auto"/>
 </p>
 
 PPO (long) and SAC were trained for the same number of steps. PPO (short) was trained for significantly less steps and does about as good as SAC. Directly comparing the performance of the PPO (long) and SAC training shows which model tended to do a better job of training the walkers.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_PPO_SAC.png" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_PPO_SAC.png" width="600" height="auto"/>
 </p>
 
 You can see how SAC tends to be more erratic as it increases entropy and is more risky in its policy changes than PPO. PPO is playing it safer, and the policy reward updates tend to be smoother and slower to change. Clearly PPO did a better job for the same number of steps...but what about training time?
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/time_PPO_SAC.png" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/time_PPO_SAC.png" width="600" height="auto"/>
 </p>
 
 When looking at training time vs step number, SAC took much longer to complete the training. 
@@ -254,7 +254,7 @@ When looking at training time vs step number, SAC took much longer to complete t
 Looking at the policy reward over time shows that PPO did a much better job finding actions that increase the reward compared to SAC. If training times are not important, one could argue that SAC ended up doing better at maximizing the policy reward, but if the step number for PPO was increased so it trained for longer times, it appears that PPO might still perform better overall.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_time.png" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_time.png" width="600" height="auto"/>
 </p>
 
 The policy reward increased smoothly and quickly for PPO
@@ -264,27 +264,27 @@ For the walkers and punchers, PPO seems to be the optimal policy.
 Since the agents are trained in the environment and will learn to take actions that increase the reward, changing the features of the agent can be done before training. In this example, limb length was increased to create a lanky agent. Using PPO, the agent was trained to walk for the same training time that previous models were trained on. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/LANKY.gif" width="600" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/LANKY.gif" width="600" height="auto"/>
 </p>
 
 After training, the lanky model had more trouble walking due to the center of gravity being higher so the body experienced more torque and was less stable than the standard walker. 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/lanky_boi.gif" width = "700" height="450"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/lanky_boi.gif" width = "700" height="auto"/>
 </p>
 
 Looking back at the PPO trained standard walker, I wanted to look at how the model adapted to a change in the mass distribution of the body after it was trained. 3 trained walkers were placed next to each other. The left model has no changes to the body. The mass of the left hand was increased in the Unity engine for the middle and right models by 20x and 100x, respectively. The hand sizes were increased for visual clarity, even though the mass of the body part is not coupled with the size of the part.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/fathands.gif" width = "700" height="350"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/fathands.gif" width = "700" height="auto"/>
 </p>
 
-The model seems to try to compensate for the uneven mass distribution by pulling the hand closer to the center of mass. The model would perfor much better if it was trained with the different agents, but it is interesting to see how the trained model adapts to this change.
+The model seems to try to compensate for the uneven mass distribution by pulling the hand closer to the center of mass. The model would perform much better if it was trained with the different agents, but it is interesting to see how the trained model adapts to this change.
 
 ## Puncher Trainer
-The player character is more challenging to train. The player needs to look around the game environment and identify enemy bots. Once identified, the player has to punch the bot until it is destroyed, while trying to prevent any bots from reaching the player, as that lowers the players health bar. The reward system needs to be outlined before the pumcher training can begin. 
+The player character is more challenging to train. The player needs to look around the game environment and identify enemy bots. Once identified, the player has to punch the bot until it is destroyed, while trying to prevent any bots from reaching the player, as that lowers the players health bar. The reward system needs to be outlined before the puncher training can begin. 
 
-Writing the scripts in C# to read in the right variables to feed into the neural net was tricky. During training, the time scale of the environment is increased to about 10x. This can cause issues with the physics of the game. The 
+Writing the scripts in C# to read in the right variables to feed into the neural net was tricky. During training, the time scale of the environment is increased to about 10x. This can cause issues with the physics of the game. The physics will update every frame, and if the animation for the puncher is sped up and moves too fast, the collision detection will not register a hit. Training game objects to interact with other game objects via collision detection will suffer from this problem. One way around this for testing would be to register a hit if the agent was looking directly at a target while the animation to punch was triggered. We could then safely assume a hit should be registered.
 
 ### Rewards
 Setting up the right rewards is tricky. It takes several iterations to understand how to implement proper rewards and penalties to get the agent to do what is expected. The areas where rewards were initially given were:
@@ -302,12 +302,12 @@ Seems simple enough, but the agent also needs to be encouraged to find enemies q
 The process used to detect an enemy will be discussed below. To integrate the machine learning training into the game environment, I had to start smaller and create a minimal agent and environment.
 
 ### Simplified Version
-The basic game mechanics are coded into this simplified environment. The puncher agent has a cube object that is animated in a similar way to act as the punching glove (referred to as the puncher cube). The punch animation is triggered and the cube will move outward and back. The punch cube has a box collider attached to it, and uses logic that will check if a collision was made with the enemy cube (by checking the tag on the game object to see if it is equal to "Target"). If it hits the cube, it will increment a counter and once that counter reaches 5 hits, the target cube will be destroyed.
+The basic game mechanics are coded into this simplified environment. The puncher agent has a cube object that is animated in a similar way to act as the punching glove (referred to as the puncher cube). The punch animation is triggered, and the cube will move outward and back. The punch cube has a box collider attached to it, and uses logic that will check if a collision was made with the enemy cube (by checking the tag on the game object to see if it is equal to "Target"). If it hits the cube, it will increment a counter and once that counter reaches 5 hits, the target cube will be destroyed.
 
 Very early tests showed some issues that needed to be resolved, like clamping the puncher agents rotations in unintended directions.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/early_training.gif" width = "700" height="350"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/early_training.gif" width = "700" height="auto"/>
 </p>
 
 Each training session starts with the target cube being randomly placed in the game environment, and the puncher then tries to locate and punch it. The actions available to the puncher agent will be described below.
@@ -337,16 +337,16 @@ No actual values are given to the agent, it will try different values for each a
 Training 9 agents in parallel was done for about 6 hours:
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/training_9.gif" width = "700" height="350"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/training_9.gif" width = "700" height="auto"/>
 </p>
 
 The results of the initial training were promising:
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/early_test_better.gif" width = "700" height="350"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/early_test_better.gif" width = "700" height="auto"/>
 </p>
 
-The agent appears to try to seek out the target cube, and does try to punch it. Not too bad! At this point I wanted to encourage the agent to seek the target cube faster. I increased the time-based reward for being able to see an enemy, and after letting it train all night to my dismay, the agent did not perform better. In fact, since the agent gets a time-based penalty for not seeing the target, a time-based reward for seeing it, a smallish reward for punching it, and a larger reward for destroying it...the agent was able to maximize the policy reward by simply looking at the static target. By continuing to look at it, it got rewarded whereas if it destroyed it, it would have to start looking around for the next target and be penalized. The agent learned to maximize the reward, but not in the way I had intended it to do so. 
+The agent appears to try to seek out the target cube and does try to punch it. Not too bad! At this point I wanted to encourage the agent to seek the target cube faster. I increased the time-based reward for being able to see an enemy, and after letting it train all night to my dismay, the agent did not perform better. In fact, since the agent gets a time-based penalty for not seeing the target, a time-based reward for seeing it, a smallish reward for punching it, and a larger reward for destroying it...the agent was able to maximize the policy reward by simply looking at the static target. By continuing to look at it, it got rewarded whereas if it destroyed it, it would have to start looking around for the next target and be penalized. The agent learned to maximize the reward, but not in the way I had intended it to do so. 
 
 ### Comparing Two Models with Different Rewards
 The values associated with the rewards have been vauge so far in that I have referred to them in a relative magnitude. There is an arbitrary aspect to the actual values because I could assign a reward of 1 for an action, or 1000. The relative magnitudes of the rewards, as they relate to each other is what is important. I trained two models, and looked at how the training compared. The model rewards are:
@@ -376,23 +376,45 @@ Note that if the game runs at 60 frames per second, these time-based rewards can
 Looking at how the models compared is tricky because if the reward system is altered, direct comparisons to policy reward will not make sense. For instance,
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs_puncher.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_2runs_puncher.png" width="700" height="auto"/>
 </p>
 
 A larger net reward can just be a factor of the increase in reward magnitude for performing specific actions. A more telling metric would be to compare the policy entropy between the models.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_vs_steps_23.png" width="700" height="580"/>
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/entropy_vs_steps_23.png" width="700" height="auto"/>
 </p>
 
-Looking at this plot, the second model appears to have lower policy entropy for the same number of steps. The entropy will go down as the model becomes more sure of which actions will lead to a maximal policy reward. 
-
-
+Looking at this plot, the second model appears to have lower policy entropy for the same number of steps. The entropy will go down as the model becomes more sure of which actions will lead to a maximal policy reward. It appears that the increase in the positive time-based reward for looking at a target has increased the model's performance slightly.
 
 ### Rebuilding Game Environment
 
-## Next Steps
+After training a model in a simlified environment, adding elements of 9 to 5 Smash It was done to start building up to the game. The player in the game plays in first person mode so there is no actual game object for the player character. The player has a glove on a spring that is used to punch and for sake of being able to see the player character during training and testing, a bot from the game was used for the player character. The bot has the glove attached so it can punch.
 
+The enemies in the game move toward the player and do damage when they make contact with them. As a first step the target cube was replaced with a game character as well, and the environment skybox from the game was added as well.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/coffee_bot_test.gif" width="800" height="auto"/>
+</p>
+
+When watching the trained model, a few things stand out.
+
+1. The agent tends to spam  the attack button. This is actually a decent strategy in a video game if there is no penalty for attacking too much. In the real world we need to optimize our energy output, and attacking when not hitting the target is not efficient. In this case there is no penalty to keep attacking and much like myself when I play some games, mashing the attack button does get the job done.
+
+2. The agent seems to constantly rotate which isn't a terrible stategy as well. A real player can see more than what is directly in front of then and peripheral vision can help us know which way to turn. We also have other sensory inputs like hearing that helps us to quickly turn in the direction of an event. Fine tuning the inputs into the neural net, and incentivising quicker movements would help this process.
+
+3. The agent sometimes turns past the target, and even after hitting it sometimes. This could be helped with changing the rewards given after a successful punch.
+
+The idea here is to add multiple targets to the environment. The targets will not be static, and they will use the walker models for locomotion. One of the 9 to 5 Smash It levels is used for the next steps here, and the walker agents are being used as targets.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/FullTest.gif" width="800" height="auto"/>
+</p>
+
+This is a little wonky, but it is going in the right direction. This test was done with different walker agents including the lanky one. The trained walkers do not walk very well in this environment despite the fact that they are just trying to move toward the player. The player is set as their navigation target, but they perform a lot less effectively in the office environment than they do in an open plane. Maybe the o
+
+## Next Steps
+Additional aspects can be hard coded into the enemy bots such as the ability to turn and look at the player, as well as simple navigation to move in the direction of the player. Obstacle avoidance should be part of the training.
 
 <!-- CONTACT -->
 ## Contact

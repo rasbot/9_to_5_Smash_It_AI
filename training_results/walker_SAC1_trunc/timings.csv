@@ -1,0 +1,14 @@
+2020-05-14 20:40:31 INFO [stats.py:111] Walker: Step: 10000. Time Elapsed: 59.585 s Mean Reward: -5.424. Std of Reward: 2.913. Training.
+2020-05-14 20:41:18 INFO [stats.py:111] Walker: Step: 20000. Time Elapsed: 106.186 s Mean Reward: -4.997. Std of Reward: 2.514. Training.
+2020-05-14 20:42:11 INFO [stats.py:111] Walker: Step: 30000. Time Elapsed: 159.080 s Mean Reward: -6.014. Std of Reward: 3.059. Training.
+2020-05-14 20:43:08 INFO [stats.py:111] Walker: Step: 40000. Time Elapsed: 216.782 s Mean Reward: -5.864. Std of Reward: 2.566. Training.
+2020-05-14 20:44:15 INFO [stats.py:111] Walker: Step: 50000. Time Elapsed: 283.488 s Mean Reward: -6.368. Std of Reward: 2.248. Training.
+2020-05-14 20:45:33 INFO [stats.py:111] Walker: Step: 60000. Time Elapsed: 361.472 s Mean Reward: -6.284. Std of Reward: 2.577. Training.
+2020-05-14 20:46:55 INFO [stats.py:111] Walker: Step: 70000. Time Elapsed: 443.982 s Mean Reward: -3.099. Std of Reward: 2.093. Training.
+2020-05-14 20:48:32 INFO [stats.py:111] Walker: Step: 80000. Time Elapsed: 540.267 s Mean Reward: -3.155. Std of Reward: 2.469. Training.
+2020-05-14 20:50:16 INFO [stats.py:111] Walker: Step: 90000. Time Elapsed: 644.965 s Mean Reward: -1.545. Std of Reward: 3.398. Training.
+2020-05-14 20:52:14 INFO [stats.py:111] Walker: Step: 100000. Time Elapsed: 762.978 s Mean Reward: 1.964. Std of Reward: 3.081. Training.
+2020-05-14 20:54:17 INFO [stats.py:111] Walker: Step: 110000. Time Elapsed: 885.777 s Mean Reward: 0.480. Std of Reward: 3.080. Training.
+2020-05-14 20:56:34 INFO [stats.py:111] Walker: Step: 120000. Time Elapsed: 1022.647 s Mean Reward: 0.003. Std of Reward: 2.181. Training.
+2020-05-14 20:59:01 INFO [stats.py:111] Walker: Step: 130000. Time Elapsed: 1169.774 s Mean Reward: -0.518. Std of Reward: 2.326. Training.
+2020-05-14 21:01:41 INFO [stats.py:111] Walker: Step: 140000. Time Elapsed: 1329.159 s Mean Reward: -0.023. Std of Reward: 1.994. Training.

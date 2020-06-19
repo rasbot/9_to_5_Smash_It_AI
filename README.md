@@ -237,13 +237,28 @@ SAC training was much longer than PPO. Training time is a cost to companies, so 
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/3models.gif" width="600" height="450"/>
 </p>
 
-PPO (long) and SAC were trained for the same number of steps. PPO (short) was trained for about a half hour. Clearly PPO did a better job for the same number of steps...but what about training time?
+PPO (long) and SAC were trained for the same number of steps. PPO (short) was trained for significantly less steps and does about as good as SAC. Directly comparing the performance of the PPO (long) and SAC training shows which model tended to do a better job of training the walkers.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_PPO_SAC.png" width="600" height="450"/>
+</p>
+
+You can see how SAC tends to be more erratic as it increases entropy and is more risky in its policy changes than PPO. PPO is playing it safer, and the policy reward updates tend to be smoother and slower to change. Clearly PPO did a better job for the same number of steps...but what about training time?
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/time_PPO_SAC.png" width="600" height="450"/>
 </p>
 
-For the same number of steps, PPO was much faster! Not only was it faster, it has a better performance than the SAC model. For the walkers and punchers, PPO seems to be the optimal policy.
+When looking at training time vs step number, SAC took much longer to complete the training. 
+
+Looking at the policy reward over time shows that PPO did a much better job finding actions that increase the reward compared to SAC. If training times are not important, one could argue that SAC ended up doing better at maximizing the policy reward, but if the step number for PPO was increased so it trained for longer times, it appears that PPO might still perform better overall.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/rasbot/Reinforcement_Learning_in_Unity/master/images/reward_time.png" width="600" height="450"/>
+</p>
+
+The policy reward increased smoothly and quickly for PPO
+For the walkers and punchers, PPO seems to be the optimal policy.
 
 ### Extensions
 Since the agents are trained in the environment and will learn to take actions that increase the reward, changing the features of the agent can be done before training. In this example, limb length was increased to create a lanky agent. Using PPO, the agent was trained to walk for the same training time that previous models were trained on. 
